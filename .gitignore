@@ -1,0 +1,5 @@
+models
+midi_songs
+*.mid
+venv
+__pycache__

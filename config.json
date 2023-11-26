@@ -1,0 +1,50 @@
+{
+  "load_model": false,
+  "model_dir": "models",
+  "dropout": 0.3,
+  "epochs": 200,
+  "batch_size": 64,
+  "sequence_length": 50,
+  "early_stopping_patience": 10,
+  "loss": "categorical_crossentropy",
+  "learning_rate": 0.001,
+  "run_state": "train",
+  "midi_file_location": "midi_songs",
+  "layers": [
+    {
+      "type": "lstm",
+      "neurons": 512,
+      "return_seq": true,
+      "recurrent_dropout": 0.3
+    },
+    {
+      "type": "lstm",
+      "neurons": 512,
+      "return_seq": false
+    },
+    {
+      "type": "batch_normalization"
+    },
+    {
+      "type": "dropout",
+      "rate": 0.3
+    },
+    {
+      "type": "dense",
+      "neurons": 256,
+      "activation": "relu"
+    },
+    {
+      "type": "batch_normalization"
+    },
+    {
+      "type": "dropout",
+      "rate": 0.3
+    },
+    {
+      "type": "dense",
+      "neurons": 0,
+      "activation": "softmax"
+    }
+  ]
+}
